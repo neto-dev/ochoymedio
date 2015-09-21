@@ -35,7 +35,7 @@
           <% if @category.empty?%>
             <h4>Por favor antes de registrar agrega algún paquete</h4>
           <% else %>
-            <%= f.select(:categories_id) do %>
+            <%= f.select(:category_id) do %>
               <% @category.each do |category|%>
                 <%= content_tag(:option, category.name, value: category.id) %>
               <% end%>

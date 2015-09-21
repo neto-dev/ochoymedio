@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150914185837) do
+ActiveRecord::Schema.define(version: 20150921200908) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -24,12 +24,12 @@ ActiveRecord::Schema.define(version: 20150914185837) do
     t.string   "name"
     t.text     "description"
     t.string   "url"
-    t.integer  "categories_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "category_id"
   end
 
-  add_index "photographies", ["categories_id"], name: "index_photographies_on_categories_id"
+  add_index "photographies", ["category_id"], name: "index_photographies_on_category_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -53,11 +53,11 @@ ActiveRecord::Schema.define(version: 20150914185837) do
     t.string   "name"
     t.text     "description"
     t.string   "url"
-    t.integer  "categories_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "category_id"
   end
 
-  add_index "videos", ["categories_id"], name: "index_videos_on_categories_id"
+  add_index "videos", ["category_id"], name: "index_videos_on_category_id"
 
 end
