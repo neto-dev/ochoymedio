@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%=@title %></title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+	<nav id="navigation">
+		<figure class="logo">
+			<%= image_tag "logo.png" %>
+		</figure>
+		<ul class="content">
+			<% if user_signed_in? %>
+			<%= link_to destroy_user_session_path, method: :delete, :class => 'li-standar' do%>
+            <li>Cerrar Sesion</li>
+         <%end%>
+				<li>
+					<span class="ion-android-options"></span>
+				</li>
+				<li>
+					<span class="ion-android-apps"></span>
+				</li>
+				<li>
+					<span class="ion-android-menu"></span>
+				</li>
+			<% else %>
+				<li>
+					<span class="ion-android-apps"></span>
+				</li>
+				<li>
+					<span class="ion-android-menu"></span>
+				</li>
+			<% end %>
+		</ul>
+	</nav>
+
+	<nav id="menu">
+		<span class="ion-android-remove close-menu"></span>
+		<ul class="content">
+			<li><a href="">Home</a></li>
+			<li><a href="">Home</a></li>
+			<li><a href="">Home</a></li>
+			<li><a href="">Home</a></li>
+		</ul>
+	</nav>
+
+	<%= yield %>
+ 
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<section id="category">
+  <h1 class="title">
+    Mis categorias
+  </h1>
+  <%= link_to 'Nueva Categoria', new_category_path, :class => "add-category" %>
+  <article class="added">
+    <div class="content">
+      <% @categories.each do |category| %>
+        <div class="row">
+          <div class="controls">
+            <%= link_to edit_category_path(category) do%>
+              <span class="ion-android-create"></span>
+            <% end %><%= link_to category, method: :delete, data: { confirm: 'Are you sure?' } do%>
+              <span class="ion-android-delete"></span>
+            <% end %>
+          </div>
+          <div class="name">
+            <%= category.name %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </article>
+</section>

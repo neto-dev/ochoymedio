@@ -1,0 +1,52 @@
+<section id="photography">
+  <h1 class="title">
+    <%=@title %>
+  </h1>
+  <div class="form-photography">
+    <div class="content">
+      <%= form_for(@photography, :html => { :multipart => true }) do |f| %>
+        <% if @photography.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@photography.errors.count, "error") %> prohibited this photography from being saved:</h2>
+
+            <ul>
+            <% @photography.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="field">
+          <%= f.text_field :name, :placeholder => "Nombre:" %>
+        </div>
+        <div class="field">
+          <%= f.text_area :description, :placeholder => "Escribe una description de la Fotografía:" %>
+        </div>
+        <div class="field-file">
+          <%= f.file_field :url, :id => "uploadBtn" %>
+          <span>Seleccionar archivo</span>
+           <input id="uploadFile" disabled="disabled" />
+        </div>
+
+        <div class="field-select">
+          <h4>Seleccionar Categoria</h4><br>
+          <% @category = Category.all %>
+          <% if @category.empty?%>
+            <h4>Por favor antes de registrar agrega algún paquete</h4>
+          <% else %>
+            <%= f.select(:categories_id) do %>
+              <% @category.each do |category|%>
+                <%= content_tag(:option, category.name, value: category.id) %>
+              <% end%>
+            <% end%>
+          <% end %>          
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Agregar Fotografía" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>

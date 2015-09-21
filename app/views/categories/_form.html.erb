@@ -1,0 +1,34 @@
+<section id="category">
+  <h1 class="title">
+    <%=@title %>
+  </h1>
+  <div class="form-category">
+    <div class="content">
+      <%= form_for(@category) do |f| %>
+        <% if @category.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+            <ul>
+            <% @category.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="field">
+          <%= f.label "Nombre:" %><br>
+          <%= f.text_field :name, :required => true %>
+        </div>
+        <div class="field">
+          <%= f.label 'Descripcion:' %><br>
+          <%= f.text_field :description, :required => true %>
+        </div>
+        <div class="actions">
+          <%= f.submit "Guardar Categoria" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
