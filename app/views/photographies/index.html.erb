@@ -1,19 +1,24 @@
+<% @title = "| fotografía |" %>
 <% if user_signed_in? %>
   <section id="photography">
     <%= link_to 'Agregar Fotografia', new_photography_path, :class => "add-photo" %>
     <article class="gallery">
       <div class="content">
         <% @photographies.each do |photography| %>
-          <div class="row">
+          <div class="row hover-photo">
             <div class="bottons">
               <%= link_to edit_photography_path(photography) do %>
                 <span class="ion-android-create"></span>
-              <% end %>
-              <%= link_to photography, method: :delete, data: { confirm: 'Are you sure?' } do%>
+              <% end %><%= link_to photography, method: :delete, data: { confirm: 'Are you sure?' } do%>
                 <span class="ion-android-delete"></span>
               <% end %>
             </div>
             <%= image_tag photography.url, :class => "url-image" %>
+            <div class="description">
+              <h1><%= photography.name%></h1>
+              <hr>
+              <p><%= photography.description%></p>
+            </div>
           </div>
         <% end %>
       </div>
@@ -24,8 +29,13 @@
     <article class="gallery">
       <div class="content">
         <% @photographies.each do |photography| %>
-          <div class="row">
+          <div class="row hover-photo">
             <%= image_tag photography.url, :class => "url-image" %>
+            <div class="description">
+              <h1><%= photography.name%></h1>
+              <hr>
+              <p><%= photography.description%></p>
+            </div>
           </div>
         <% end %>
       </div>

@@ -28,7 +28,7 @@ class PhotographiesController < ApplicationController
 
     respond_to do |format|
       if @photography.save
-        format.html { redirect_to @photography, notice: 'Photography was successfully created.' }
+        format.html { redirect_to :controller => 'photographies', :action => "index" }
         format.json { render :show, status: :created, location: @photography }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class PhotographiesController < ApplicationController
   def update
     respond_to do |format|
       if @photography.update(photography_params)
-        format.html { redirect_to @photography, notice: 'Photography was successfully updated.' }
+        format.html { redirect_to :controller => 'photographies', :action => "index"  }
         format.json { render :show, status: :ok, location: @photography }
       else
         format.html { render :edit }
