@@ -24,6 +24,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'json'
 gem 'carrierwave'
+
+gem 'fog'
 # Use ActiveModel has_secure_passwordp
 # gem 'bcrypt', '~> 3.1.7'
 
