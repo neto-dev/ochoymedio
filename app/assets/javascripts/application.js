@@ -15,6 +15,29 @@
 //= require turbolinks
 //= require_tree .
 
+$(document).ready(function(){
+    	var contentLoader = $('#content-loader');
+        var loader = contentLoader.parent();
+        var percentValue = contentLoader.find("#percent-value");
+        var is100 = false;
+        var loaded = 0;
+
+        var intervalId = setInterval(function(){
+            loaded += 1;
+            is100 = loaded == 100;
+
+            percentValue.text(loaded + '%');
+
+            if ( is100 )
+            {
+                clearInterval(intervalId);
+
+                setTimeout(function(){
+                    loader.fadeOut(400)                   
+                }, 200);
+            }
+        }, 50);
+});
 
 $("#uploadBtn").change(function(){
 	var val = $(this).val()
