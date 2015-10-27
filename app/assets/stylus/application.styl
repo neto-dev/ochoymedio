@@ -567,7 +567,16 @@ p, h1, h2, h3
 			&:hover
 				background gris
 				color white
-			
+
+.logo-responsive
+	display none
+	position absolute
+	top 1em
+	left 0
+	right 0
+	margin 0 auto
+	width 70%
+		
 
 #category
 	padding-top 5.5em
@@ -683,9 +692,17 @@ p, h1, h2, h3
 				column-gap: 5px;
 				column-fill: auto;
 				width 95%
+				
+@media screen and (max-width : 900px)
+
+	.logo-responsive
+		display block
+		
+	.logo-home
+		display none
 
 @media screen and (max-width : 600px)
-
+		
 	#photography
 		& .gallery
 			& .content
