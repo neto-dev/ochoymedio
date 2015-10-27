@@ -1,10 +1,15 @@
+@font-face
+   font-family Arquitecta
+   font-style light
+   src url(assets/light.otf)
+
 gris = #1A1A1A
 rojo = #E32143
 
 *
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Arquitecta', sans-serif;
 	box-sizing: border-box;
-	text-transform lowercase
+	text-transform uppercase
 
 html, body
 	height 100%
@@ -64,6 +69,7 @@ p, h1, h2, h3
 		list-style none
 		width 50%
 		& a
+			text-shadow 1px 1px 2px rgba(0, 0, 0, .55)
 			text-decoration none
 			color white
 			font-size 1.6em
@@ -89,19 +95,38 @@ p, h1, h2, h3
 		&:hover
 			background rgba(0, 0, 0, .65)
 
-#intro
-    & .fullscreen-bg__video
-		position: fixed;
-		top: 50%;
-		left: 50%;
-		min-width: 100%;
-		min-height: 100%;
-		width: auto;
-		height: auto;
-		z-index: -100;
-		-webkit-transform: translateX(-50%) translateY(-50%);
-		transform: translateX(-50%) translateY(-50%);
-		background-size: cover;
+.fondo
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: -100;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+	background-size: cover;
+	
+.bg-contact
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: -100;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+	background-size: cover;
+
+.logo-home
+	position absolute
+	margin 0 auto
+	left 0
+	right 0
+	top 25%
 
 .cortina
 	cursor pointer
@@ -144,7 +169,7 @@ p, h1, h2, h3
 	& .logo
 		max-width 140px
 		position absolute 
-		top .1em
+		top .6em
 		left .5em
 		& img
 			width 100%
@@ -493,6 +518,24 @@ p, h1, h2, h3
 							display block
 							border 2px solid rojo
 
+.contact
+	position absolute
+	top 15%
+	right 0
+	left 0
+	margin 0 auto
+	color white
+	max-width 400px
+	text-align center
+	& h1
+		text-shadow 1px 1px 1px rgba(0, 0, 0, .35)
+		font-weight 300
+		margin .5em 0
+	& p
+		text-shadow 1px 1px 1px rgba(0, 0, 0, .35)
+		margin .7em 0
+		font-size 1.1em
+
 #form-sign
 	margin-top 4em
 	padding 5em 0
@@ -670,5 +713,6 @@ p, h1, h2, h3
 				column-gap: 5px;
 				column-fill: auto;
 				width 95%
+
 
 
