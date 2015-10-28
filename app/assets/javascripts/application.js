@@ -49,7 +49,9 @@ $(".description").click(function(){
 	$(".cortina").show(300)
 	$(".insert-url").attr("src", url)
 	$(".show").show(400)
-})
+     $('body,html').animate({scrollTop : 0}, 500);
+    return false;
+ });
 
 $(".cortina, .close").click(function(){
 	$(".show").hide(300)
