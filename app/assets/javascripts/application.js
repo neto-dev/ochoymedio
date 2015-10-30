@@ -103,6 +103,13 @@ $(".big").click(function(){
 	},600);
 })
 
+$(".filter").click(function(){
+	$(".hover-photo").fadeOut(400)
+	var category = $( this ).attr("href")
+	var category_ = category.substr(1)
+	$(".hover-photo."+category_).fadeIn(600)
+})
+
 
 
 

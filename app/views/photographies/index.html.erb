@@ -1,6 +1,15 @@
 <% @title = "| fotografía |" %>
 <% if user_signed_in? %>
   <section id="photography">
+    <div class="category">
+      <ul>
+        <% Category.all.each do |categories| %>
+            <li>
+              <%= categories.name %>
+            </li>
+        <% end %>
+      </ul>
+    </div>
     <%= link_to 'Agregar Fotografia', new_photography_path, :class => "add-photo" %>
     <article class="gallery">
       <div class="content">
@@ -26,10 +35,20 @@
     </section>
 <% else %>
    <section id="photography">
+   <div class="category">
+      <ul>
+        <% Category.all.each do |categories| %>
+            <li>
+              <a href="#<%= categories.name %>" class="filter"><%= categories.name %></a> 
+            </li>
+        <% end %>
+      </ul>
+    </div>
     <article class="gallery">
       <div class="content">
         <% @photographies.each do |photography| %>
-          <div class="row hover-photo">
+          <% @category = Category.where(:id => photography.category_id).first %>
+          <div class="row hover-photo <%= @category.name %>" cat="<%= @category.name %>">
             <%= image_tag photography.url, :class => "url-image" %>
             <div class="description">
               <h1><%= photography.name%></h1>
