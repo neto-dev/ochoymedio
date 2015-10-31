@@ -3,9 +3,12 @@
   <section id="photography">
     <div class="category">
       <ul>
+        <li>
+          <a href="#all" class="filter">All</a>
+        </li>
         <% Category.all.each do |categories| %>
             <li>
-              <%= categories.name %>
+              <a href="#<%= categories.name %>" class="filter"><%= categories.name %></a> 
             </li>
         <% end %>
       </ul>
@@ -14,7 +17,8 @@
     <article class="gallery">
       <div class="content">
         <% @photographies.each do |photography| %>
-          <div class="row hover-photo">
+          <% @category = Category.where(:id => photography.category_id).first %>
+          <div class="row hover-photo <%= @category.name %>" cat="<%= @category.name %>">
             <div class="bottons">
               <%= link_to edit_photography_path(photography) do %>
                 <span class="ion-android-create"></span>
@@ -37,6 +41,9 @@
    <section id="photography">
    <div class="category">
       <ul>
+        <li>
+          <a href="#all" class="filter">All</a>
+        </li>
         <% Category.all.each do |categories| %>
             <li>
               <a href="#<%= categories.name %>" class="filter"><%= categories.name %></a> 

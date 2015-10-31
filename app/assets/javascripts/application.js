@@ -104,10 +104,14 @@ $(".big").click(function(){
 })
 
 $(".filter").click(function(){
-	$(".hover-photo").fadeOut(400)
 	var category = $( this ).attr("href")
 	var category_ = category.substr(1)
-	$(".hover-photo."+category_).fadeIn(600)
+	if(category_ === "all"){
+		$(".hover-photo").fadeIn(400)
+	}else{
+		$(".hover-photo").fadeOut(400)
+		$(".hover-photo."+category_).fadeIn(600)
+	}
 })
 
 
