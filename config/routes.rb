@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :videos
   resources :photographies
   resources :categories
-  root :to => 'home#index'
+  root :to => 'photographies#index'
 
   get "contact" => "contact#index"
 
