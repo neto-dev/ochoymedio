@@ -1,24 +1,13 @@
 <% @title = "| fotografía |" %>
 <% if user_signed_in? %>
   <section id="photography">
-    <div class="category">
-      <ul>
-        <li>
-          <a href="#all" class="filter">All</a>
-        </li>
-        <% Category.all.each do |categories| %>
-            <li>
-              <a href="#<%= categories.name %>" class="filter"><%= categories.name %></a> 
-            </li>
-        <% end %>
-      </ul>
-    </div>
+
     <%= link_to 'Agregar Fotografia', new_photography_path, :class => "add-photo" %>
     <article class="gallery">
       <div class="content">
         <% @photographies.each do |photography| %>
-          <% @category = Category.where(:id => photography.category_id).first %>
-          <div class="row hover-photo <%= @category.name %>" cat="<%= @category.name %>">
+
+          <div class="row hover-photo">
             <div class="bottons">
               <%= link_to edit_photography_path(photography) do %>
                 <span class="ion-android-create"></span>
@@ -26,7 +15,7 @@
                 <span class="ion-android-delete"></span>
               <% end %>
             </div>
-            <%= image_tag photography.url, :class => "url-image" %>
+            <%= cl_image_tag(photography.url_image.url, :class => "url-image") %>
             <div class="description">
               <h1><%= photography.name%></h1>
               <hr>
@@ -39,24 +28,11 @@
     </section>
 <% else %>
    <section id="photography">
-   <div class="category">
-      <ul>
-        <li>
-          <a href="#all" class="filter">All</a>
-        </li>
-        <% Category.all.each do |categories| %>
-            <li>
-              <a href="#<%= categories.name %>" class="filter"><%= categories.name %></a> 
-            </li>
-        <% end %>
-      </ul>
-    </div>
     <article class="gallery">
       <div class="content">
         <% @photographies.each do |photography| %>
-          <% @category = Category.where(:id => photography.category_id).first %>
-          <div class="row hover-photo <%= @category.name %>" cat="<%= @category.name %>">
-            <%= image_tag photography.url, :class => "url-image" %>
+          <div class="row hover-photo">
+            <%= cl_image_tag(photography.url_image.url, :class => "url-image") %>
             <div class="description">
               <h1><%= photography.name%></h1>
               <hr>

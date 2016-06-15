@@ -24,23 +24,9 @@
           <%= f.text_area :description, :placeholder => "Escribe una description de la Fotografía:" %>
         </div>
         <div class="field-file">
-          <%= f.file_field :url, :id => "uploadBtn" %>
+          <%= f.file_field :images, :id => "uploadBtn", :multiple => true  %>
           <span>Seleccionar archivo</span>
            <input id="uploadFile" disabled="disabled" />
-        </div>
-
-        <div class="field-select">
-          <h4>Seleccionar Categoria</h4><br>
-          <% @category = Category.all %>
-          <% if @category.empty?%>
-            <h4>Por favor antes de registrar agrega algún paquete</h4>
-          <% else %>
-            <%= f.select(:category_id) do %>
-              <% @category.each do |category|%>
-                <%= content_tag(:option, category.name, value: category.id) %>
-              <% end%>
-            <% end%>
-          <% end %>          
         </div>
 
         <div class="actions">
